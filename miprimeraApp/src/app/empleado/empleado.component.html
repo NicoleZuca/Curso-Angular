@@ -1,0 +1,23 @@
+<p>Nombre del empleado: {{nombre}}</p> <!--Uso de interpolación (textos dinámicos),-->
+<p>Apellido del empleado: {{apellido}}</p> <!--es decir, lo que está entre () es dinámico-->
+<p>Edad del empleado: {{edad<18 ? "Menor de edad":"mayor de edad"}}</p> <!--y lo demás es estático-->
+<p>Empresa del empleado: {{empresa}}</p>
+
+<!--Introduce la empresa: <input type="text" #empresa (keyup)="0" [disabled]="habilitacionCuadro"> <!--el # es para darle un nombre identificador al elemento en este caso al input-->
+                                                                <!--keyup es para que vaya apareciendo el texto en el campo de empresa cuando lo van escribiendo-->
+
+<!--Introduce la empresa: <input type="text" (input)="cambiaEmpresa($event)">-->
+
+Introduce la empresa: <input type="text" [(ngModel)]="empresa">
+
+<br/>
+<br/>
+<!--<input type="button" value="Enviar" (click)="llamaEmpresa(empresa.value)"/>--> <!--Botón para enviar el nombre de la empresa-->
+
+{{textoDeRegistro}}
+<br/>
+Registrado: <input type="radio" value="si" name="nRegistro" id="registro" [checked]="usuRegistrado" (click)="setUsuarioRegistrado($event)"/><!--con el $event se le pasa la zona
+de argumentos a la función ese objeto-->
+No registrado: <input type="radio" value="no" name="nRegistro" (click)="setUsuarioRegistrado($event)"/>
+
+{{getRegistroUsuario()}} <!--propiedad que se encarga de cambiarle el valor a la propiedad de Registrado-->
